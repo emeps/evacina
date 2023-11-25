@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCitizenRequest;
 use App\Http\Requests\UpdateCitizenRequest;
 use App\Models\Citizen;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CitizenController extends Controller
 {
@@ -13,23 +16,39 @@ class CitizenController extends Controller
      */
     public function index()
     {
-        //
+        $citizens = Citizen::all();
+        return view('user.list', [
+           compact('citizens')
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('user.edit', [
+            'user' => $request->user(),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCitizenRequest $request)
+    public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $request->validate([
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+        ]);
+
+        $user = User::create([
+            'name' => $request->nome,
+            'email' => $request->email,
+            'password' => Hash::make('password'),
+        ]);
+        $user->citizen()->create($data);
+        return redirect()->route('dashboard')->with('success', 'Cidadão cadastrado com sucesso!');
     }
 
     /**
@@ -51,9 +70,9 @@ class CitizenController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCitizenRequest $request, Citizen $citizen)
+    public function update(Request $request, Citizen $citizen)
     {
-        //
+        dd($request->all());
     }
 
     /**

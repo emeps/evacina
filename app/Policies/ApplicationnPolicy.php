@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Applicationn;
+use App\Models\Application;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
@@ -19,7 +19,7 @@ class ApplicationnPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Applicationn $applicationn): bool
+    public function view(User $user, Application $applicationn): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class ApplicationnPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Applicationn $applicationn): bool
+    public function update(User $user, Application $applicationn): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class ApplicationnPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Applicationn $applicationn): bool
+    public function delete(User $user, Application $applicationn): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class ApplicationnPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Applicationn $applicationn): bool
+    public function restore(User $user, Application $applicationn): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class ApplicationnPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Applicationn $applicationn): bool
+    public function forceDelete(User $user, Application $applicationn): bool
     {
         //
     }

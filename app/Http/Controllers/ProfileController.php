@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\UpdateCitizenRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +22,17 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function create(Request $request){
+        return view('user.edit', [
+            'user' => $request->user(),
+        ]);
+    }
+
+    public function editCitizen(Request $request){
+        return view('user.edit', [
+            'user' => $request->user(),
+        ]);
+    }
     /**
      * Update the user's profile information.
      */
@@ -36,6 +48,7 @@ class ProfileController extends Controller
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+
 
     /**
      * Delete the user's account.

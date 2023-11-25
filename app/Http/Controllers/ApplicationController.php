@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreApplicationnRequest;
 use App\Http\Requests\UpdateApplicationnRequest;
-use App\Models\Applicationn;
+use App\Models\Application;
 
-class ApplicationnController extends Controller
+class ApplicationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,7 @@ class ApplicationnController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Applicationn $applicationn)
+    public function show(Application $applicationn)
     {
         //
     }
@@ -43,7 +43,7 @@ class ApplicationnController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Applicationn $applicationn)
+    public function edit(Application $applicationn)
     {
         //
     }
@@ -51,7 +51,7 @@ class ApplicationnController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateApplicationnRequest $request, Applicationn $applicationn)
+    public function update(UpdateApplicationnRequest $request, Application $applicationn)
     {
         //
     }
@@ -59,7 +59,7 @@ class ApplicationnController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Applicationn $applicationn)
+    public function destroy(Application $applicationn)
     {
         //
     }
