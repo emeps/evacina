@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/citizen/create', [CitizenController::class, 'create'])->name('citizen.create');
     Route::post('/citizen/store', [CitizenController::class, 'store'])->name('citizen.store');
     Route::get('/citizen/list', [CitizenController::class, 'index'])->name('citizen.list');
+    Route::match(['put', 'patch'], '/citizen/{citizen}', [CitizenController::class, 'update'])->name('citizen.update');
+    Route::delete('/citizen/{citizen}', [CitizenController::class, 'destroy'])->name('citizen.destroy');
+    Route::get('/citizen/{citizen}', [CitizenController::class, 'show'])->name('citizen.show');
 
 
 });

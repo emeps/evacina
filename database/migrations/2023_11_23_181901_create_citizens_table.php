@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('cep', 8);
             $table->string('uf', 2);
             $table->string('plano_saude', 3);
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->boolean('funcionario')->default(false);
             $table->string('comorbidade',50);
             $table->timestamps();

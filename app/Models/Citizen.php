@@ -9,6 +9,7 @@ use PHPUnit\TextUI\Application;
 class Citizen extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id_cidadao';
     protected $fillable = [
         'cpf',
         'nome',
