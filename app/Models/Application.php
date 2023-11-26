@@ -8,13 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Application extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id_campanha';
+    protected $table = 'applications';
     protected $fillable = [
-        'id_campanha',
         'id_cidadao',
         'id_vacina',
         'dose',
         'data_aplicacao',
         'nome_aplicador',
         'unidade_saude',
+        'lote'
     ];
 }

@@ -26,7 +26,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($citizens as $citizen)
-                                    <tr class="w-full flex justify-between items-center p-6 border-t border-gray-200 bg-gray-200">
+                                    <tr class="w-full flex justify-between items-center p-6 border-t border-gray-200 ">
                                         <td class="py-3 px-6 w-3/4">{{ $citizen->nome }}</td>
                                         <td class="py-3 px-6 gap-4 w-full flex flex-1 justify-items-center">
                                             <form action="{{ route('citizen.show', $citizen->id_cidadao) }}" method="post" class="inline">

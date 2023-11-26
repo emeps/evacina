@@ -18,13 +18,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    if (auth()->check()) {
+        return redirect()->route('citizen.list');
+    }
+    return redirect()->route('login');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('citizen.list');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -47,7 +49,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/vacine/{vacine}', [VacineController::class, 'destroy'])->name('vacine.destroy');
     Route::get('/vacine/{vacine}/details', [VacineController::class, 'show'])->name('vacine.show');
 
-
+    Route::get('/application/list', [ApplicationController::class, 'index'])->name('application.list');
+    Route::get('/application/create', [ApplicationController::class, 'create'])->name('application.create');
+    Route::post('/application/store', [ApplicationController::class, 'store'])->name('application.store');
+    Route::get('/application/{application}', [ApplicationController::class, 'edit'])->name('application.edit');
+    Route::match(['put', 'patch'], '/application/{application}', [ApplicationController::class, 'update'])->name('application.update');
+    Route::delete('/application/{application}', [ApplicationController::class, 'destroy'])->name('application.destroy');
+    Route::get('/application/{application}/details', [ApplicationController::class, 'show'])->name('application.show');
 
 });
 

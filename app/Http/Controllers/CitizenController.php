@@ -106,8 +106,12 @@ class CitizenController extends Controller
     {
         $citizen = Citizen::query()->findOrFail($citizenID);
         $user = User::query()->findOrFail($citizen->user_id);
+        $applications = Application::query()->where('id_cidadao', $citizenID)->get();
+        foreach ($applications as $application) {
+            $application->delete();
+        }
         $citizen->user()->delete();
         $citizen->delete();
-        return redirect()->route('citizen/list')->with('success', 'Cidadão excluído com sucesso!');
+        return redirect()->route('citizen.list')->with('success', 'Cidadão excluído com sucesso!');
     }
 }

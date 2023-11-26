@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
@@ -19,6 +19,9 @@
             <div>
                 <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    <h2 class="text-xl font-medium text-gray-900 dark:text-gray-100">
+                        e-Vacina
+                    </h2>
                 </a>
             </div>
 
