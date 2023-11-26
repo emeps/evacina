@@ -86,14 +86,14 @@
                             </button>
                         </x-slot>
                         <x-slot name="content" class="flex justify-end">
-                            <x-dropdown-link :href="route('profile.edit')" class="flex justify-start">
+                            <x-dropdown-link :href="route('vacine.create')" class="flex justify-start">
                                 {{ __('Cadastrar nova vacina') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('profile.edit')" class="flex justify-start">
                                 {{ __('Aplicar vacina') }}
                             </x-dropdown-link>
 {{--                            Excluir e editar vacina fica dentro de listar--}}
-                            <x-dropdown-link :href="route('profile.edit')" class="flex justify-start">
+                            <x-dropdown-link :href="route('vacine.list')" class="flex justify-start">
                                 {{ __('Listar todas as vacinas') }}
                             </x-dropdown-link>
                         </x-slot>

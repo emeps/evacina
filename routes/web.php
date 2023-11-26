@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\{
     CitizenController,
-    ProfileController};
+    ProfileController,
+    VacineController,
+    ApplicationController
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +38,15 @@ Route::middleware('auth')->group(function () {
     Route::match(['put', 'patch'], '/citizen/{citizen}', [CitizenController::class, 'update'])->name('citizen.update');
     Route::delete('/citizen/{citizen}', [CitizenController::class, 'destroy'])->name('citizen.destroy');
     Route::get('/citizen/{citizen}', [CitizenController::class, 'show'])->name('citizen.show');
+
+    Route::get('/vacine/list', [VacineController::class, 'index'])->name('vacine.list');
+    Route::get('/vacine/create', [VacineController::class, 'create'])->name('vacine.create');
+    Route::post('/vacine/store', [VacineController::class, 'store'])->name('vacine.store');
+    Route::get('/vacine/{vacine}', [VacineController::class, 'edit'])->name('vacine.edit');
+    Route::match(['put', 'patch'], '/vacine/{vacine}', [VacineController::class, 'update'])->name('vacine.update');
+    Route::delete('/vacine/{vacine}', [VacineController::class, 'destroy'])->name('vacine.destroy');
+    Route::get('/vacine/{vacine}/details', [VacineController::class, 'show'])->name('vacine.show');
+
 
 
 });
