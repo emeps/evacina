@@ -55,6 +55,8 @@ class ApplicationController extends Controller
         $data['nome_aplicador'] = auth()->user()->name;
         $vacine = Vacine::query()->where('id_vacina', $data['id_vacina'])->get();
         $data['lote'] = $vacine[0]->lote;
+        $vacine[0]->doses = $vacine[0]->doses - 1;
+        $vacine[0]->save();
         Application::create($data);
         return redirect()->route('application.list');
     }
