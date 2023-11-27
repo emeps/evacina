@@ -10,6 +10,7 @@ class Citizen extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id_cidadao';
+    protected $table = 'cidadao';
     protected $fillable = [
         'cpf',
         'nome',

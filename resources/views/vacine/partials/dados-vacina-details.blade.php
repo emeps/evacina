@@ -7,7 +7,7 @@
 
     <div class="mt-6 space-y-6">
         <div>
-            <x-input-label for="nome" :value="__('Nome do Produto')" />
+            <x-input-label for="nome" :value="__('Nome da vacina')" />
             <x-text-input id="nome" name="nome" type="text" class="mt-1 block w-full" disabled :value="old('nome', $vacine->nome)" required />
             <x-input-error class="mt-2" :messages="$errors->get('nome')" />
         </div>
@@ -31,7 +31,7 @@
         </div>
 
         <div>
-            <x-input-label for="doses" :value="__('Doses')" />
+            <x-input-label for="doses" :value="__('Doses de aplicação')" />
             <x-text-input id="doses" name="doses" type="number" class="mt-1 block w-full" disabled :value="old('doses', $vacine->doses)" required />
             <x-input-error class="mt-2" :messages="$errors->get('doses')" />
         </div>

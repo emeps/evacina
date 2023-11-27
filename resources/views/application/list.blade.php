@@ -13,7 +13,7 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 w-full">
                     <table class="w-full text-white">
                         <thead>
-                        @if($applications->count() <=0)
+                        @if(isset($applications))
                             <h2 class="font-semibold text-xl text-gray-800  leading-tight">
                                 Não encontramos nenhum aplicação cadastrada!
                             </h2>

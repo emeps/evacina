@@ -34,11 +34,11 @@
                                                 @method('GET')
                                                 <x-primary-button>{{ __('Editar') }}</x-primary-button>
                                             </form>
-                                            <form action="{{ route('citizen.destroy', 1) }}" method="post" class="inline">
-                                                @csrf
-                                                @method('GET')
-                                                <x-primary-button>{{ __('Vacinas') }}</x-primary-button>
-                                            </form>
+{{--                                            <form action="{{ route('citizen.destroy', 1) }}" method="post" class="inline">--}}
+{{--                                                @csrf--}}
+{{--                                                @method('GET')--}}
+{{--                                                <x-primary-button>{{ __('Detalhes') }}</x-primary-button>--}}
+{{--                                            </form>--}}
                                             <form action="{{ route('citizen.destroy', $citizen->id_cidadao) }}" method="post" class="inline">
                                                 @csrf
                                                 @method('DELETE')

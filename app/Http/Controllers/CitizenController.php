@@ -38,12 +38,10 @@ class CitizenController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCitizenRequest $request)
     {
-        $data = $request->all();
-        $request->validate([
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-        ]);
+        $data = $request->validated();
+
 
         $user = User::create([
             'name' => $request->nome,
@@ -70,7 +68,7 @@ class CitizenController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(int $citizen)
+    public function listDetails (int $citizen)
     {
         dd($citizen);
 //        $citizen = Citizen::query()->findOrFail($citizen);

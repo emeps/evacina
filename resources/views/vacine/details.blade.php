@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-             {{__('Atualizar dados da vacina')}}
+             {{__('Informações sobre a vacina')}}
         </h2>
     </x-slot>
     <div class="py-12 flex justify-center">
@@ -19,7 +19,7 @@
                     <section class="space-y-6" >
                         <header>
                             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                                {{ __('Cadastro finalizado') }}
+                                {{ __('Atenção!') }}
                             </h2>
 
                             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">

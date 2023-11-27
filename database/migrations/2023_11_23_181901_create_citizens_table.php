@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('citizens', function (Blueprint $table) {
+        Schema::create('cidadao', function (Blueprint $table) {
             $table->id('id_cidadao');
             $table->string('cpf', 11)->unique();
             $table->string('nome', 50);
             $table->date('data_nascimento');
-            $table->string('nome_mae', 50);
-            $table->string('nome_pai', 50);
+            $table->string('nome_mae', 50)->nullable();
+            $table->string('nome_pai', 50)->nullable();
             $table->string('sexo', 1);
             $table->string('estado_civil', 10);
             $table->string('escolaridade', 30);

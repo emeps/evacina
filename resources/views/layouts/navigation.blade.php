@@ -109,7 +109,6 @@
                         <x-dropdown-link :href="route('citizen.create')">
                             {{ __('Editar cadastro') }}
                         </x-dropdown-link>
-
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
