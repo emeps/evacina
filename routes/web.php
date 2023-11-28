@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/application/{application}', [ApplicationController::class, 'destroy'])->name('application.destroy');
     Route::get('/application/{application}/details', [ApplicationController::class, 'show'])->name('application.show');
 
+    Route::get('/vacine-card', [CitizenController::class, 'consulta'])->name('citizen.search');
+    Route::get('/vacine-card/by-inlness', [CitizenController::class, 'consultaPorDoenca'])->name('citizen.searchByInlness');
 });
 
 require __DIR__.'/auth.php';

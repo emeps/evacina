@@ -29,6 +29,12 @@
                             <x-dropdown-link :href="route('citizen.list')" class="flex justify-start">
                                 {{ __('Listar os cidadãos') }}
                             </x-dropdown-link>
+                            <x-dropdown-link :href="route('citizen.search')" class="flex justify-start">
+                                {{ __('Buscar carteira de vacina') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('citizen.searchByInlness')" class="flex justify-start">
+                                {{ __('Buscar carteiras de vacinas por doença') }}
+                            </x-dropdown-link>
 
                         </x-slot>
                     </x-dropdown>
@@ -151,7 +157,34 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Editar perfil de acesso') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('citizen.create')">
+                    {{ __('Cadastrar cidadão') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('citizen.list')">
+                    {{ __('Listar os cidadãos') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('citizen.search')">
+                    {{ __('Buscar carteira de vacina') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('citizen.searchByInlness')">
+                    {{ __('Buscar carteiras por doença') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('vacine.create')">
+                    {{ __('Cadastrar nova vacina') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('application.create')">
+                    {{ __('Aplicar vacina') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('vacine.list')">
+                    {{ __('Listar todas as vacinas') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('application.create')">
+                    {{ __('Cadastrar nova aplicação') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('application.list')">
+                    {{ __('Listar aplicações') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -161,7 +194,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Sair') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

@@ -112,4 +112,57 @@ class CitizenController extends Controller
         $citizen->delete();
         return redirect()->route('citizen.list')->with('success', 'Cidadão excluído com sucesso!');
     }
+
+    public function  consultaPorDoenca(){
+        $doenca = \request()->doenca;
+        $resultado = [];
+        $resultado = DB::table('cidadao')
+            ->select(
+                'cidadao.nome',
+                'cidadao.cns',
+                'cidadao.cpf',
+                'aplicacao.data_aplicacao',
+                'aplicacao.dose',
+                'vacina.nome as vacina',
+                'aplicacao.nome_aplicador',
+                'aplicacao.unidade_saude',
+                'aplicacao.lote',
+            )
+            ->leftJoin('aplicacao', 'cidadao.id_cidadao', '=', 'aplicacao.id_cidadao')
+            ->leftJoin('vacina', 'aplicacao.id_vacina', '=', 'vacina.id_vacina')
+            ->where('vacina.doenca', '=', $doenca)
+            ->orderBy('cidadao.nome')
+            ->orderBy('aplicacao.data_aplicacao')
+            ->get();
+
+        return view('vacine.vacine-card-search', [
+            'resultados' => $resultado,
+        ]);
+    }
+    public function  consulta(){
+        $cpf = \request()->cpf;
+        $resultado = [];
+            $resultado = DB::table('cidadao')
+                ->select(
+                    'cidadao.nome',
+                    'cidadao.cns',
+                    'aplicacao.data_aplicacao',
+                    'aplicacao.dose',
+                    'vacina.nome as vacina',
+                    'aplicacao.nome_aplicador',
+                    'aplicacao.unidade_saude',
+                    'aplicacao.lote',
+                    'vacina.doenca'
+                )
+                ->leftJoin('aplicacao', 'cidadao.id_cidadao', '=', 'aplicacao.id_cidadao')
+                ->leftJoin('vacina', 'aplicacao.id_vacina', '=', 'vacina.id_vacina')
+                ->where('cidadao.cpf', '=', $cpf)
+                ->orderBy('cidadao.nome')
+                ->orderBy('aplicacao.data_aplicacao')
+                ->get();
+
+            return view('vacine.vacine-card-search', [
+                'resultados' => $resultado,
+            ]);
+    }
 }
