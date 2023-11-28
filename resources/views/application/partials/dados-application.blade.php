@@ -19,7 +19,7 @@
             <x-input-label for="id_vacina" :value="__('Vacina aplicada')" />
             <select id="id_vacina" name="id_vacina" class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" required autofocus>
                 @foreach($vacines as $vacine)
-                    <option value="{{$vacine->id_vacina}}" @if(old('id_vacina', $vacine->id_vacina)) selected @endif>{{$vacine->nome}} - {{$vacine->fabricante}} - {{$vacine->data_validade}}</option>
+                    <option value="{{$vacine->id_vacina}}" @if(old('id_vacina', $vacine->id_vacina)) selected @endif>{{$vacine->nome}} - {{$vacine->fabricante}} - Val: {{\Illuminate\Support\Carbon::parse($vacine->data_validade)->format('m-Y')}}</option>
                 @endforeach
             </select>
              <x-input-error class="mt-2" :messages="$errors->get('id_vacina')" />
@@ -31,7 +31,7 @@
         </div>
 
         <div>
-            <x-input-label for="data_aplicacao" :value="__('Data de validade')" />
+            <x-input-label for="data_aplicacao" :value="__('Data da aplicação')" />
             <x-text-input id="data_aplicacao" name="data_aplicacao" type="date" class="mt-1 block w-full" :value="old('data_aplicacao', $application->data_aplicacao)" required />
             <x-input-error class="mt-2" :messages="$errors->get('data_aplicacao')" />
         </div>
